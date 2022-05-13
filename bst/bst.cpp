@@ -179,10 +179,13 @@ void BST<Data>::Insert(const Data& data) {
                 current = current->leftchild;
         }
 
-        if (newnode->element < parent->element)
+        if (newnode->element < parent->element) {
             parent->leftchild = newnode;
-        else 
+            size++;
+        } else {
             parent->rightchild = newnode;
+            size++;
+        }
 
     }
 }  
@@ -204,10 +207,13 @@ void BST<Data>::Insert(Data&& data){
                 current = current->leftchild;
         }
 
-        if (newnode->element < parent->element)
+        if (newnode->element < parent->element) {
             parent->leftchild = newnode;
-        else 
+            size++;
+        } else {
             parent->rightchild = newnode;
+            size++;
+        }
 
     }
 }  
