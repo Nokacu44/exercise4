@@ -51,7 +51,7 @@ const Data& BST<Data>::Min() const {
     if (root == nullptr) {
         throw std::length_error("Errore: bst vuoto!");
     } else {
-        return FindPointerToMin(&this->Root())->Element();
+        return FindPointerToMin(root)->Element();
     }
 }
 
@@ -60,7 +60,7 @@ Data BST<Data>::MinNRemove() {
     if (root == nullptr) {
         throw std::length_error("Errore: bst vuoto!");
     } else {
-        return DataNDelete(Detach(FindPointerToMin(&this->Root())));
+        return DataNDelete(DetachMin(root));
     }
 }
 
@@ -69,7 +69,7 @@ void BST<Data>::RemoveMin() {
     if (root == nullptr) {
         throw std::length_error("Errore: bst vuoto!");
     } else {
-        delete Detach(FindPointerToMin(&this->Root()));
+        delete Detach(FindPointerToMin(root));
     }
 }
 
@@ -80,7 +80,7 @@ const Data& BST<Data>::Max() const {
     if (root == nullptr) {
         throw std::length_error("Errore: bst vuoto!");
     } else {
-        return FindPointerToMax(&this->Root())->Element();
+        return FindPointerToMax(root)->Element();
     }
 }
 
@@ -89,7 +89,7 @@ Data BST<Data>::MaxNRemove() {
     if (root == nullptr) {
         throw std::length_error("Errore: bst vuoto!");
     } else {
-        return DataNDelete(Detach(FindPointerToMax(&this->Root())));
+        return DataNDelete(DetachMax(root));
     }
 }
 
@@ -98,7 +98,7 @@ void BST<Data>::RemoveMax() {
     if (root == nullptr) {
         throw std::length_error("Errore: bst vuoto!");
     } else {
-        delete Detach(FindPointerToMax(&this->Root()));
+        delete Detach(FindPointerToMax(root));
     }
 }
 
@@ -109,35 +109,55 @@ const Data& BST<Data>::Predecessor(const Data& data) const {
     if (root == nullptr) {
         throw std::length_error("Errore: albero vuoto!");
     } else {
-        // return *(FindPointerToPredecessor( root, data ))->Element();
+        return (*FindPointerToPredecessor(root, data))->Element();
     }
 }
 
 template<typename Data>
 Data BST<Data>::PredecessorNRemove(const Data& data) {
-    // (concrete function must throw std::length_error when not found)
+    if (root == nullptr) {
+        throw std::length_error("Errore: albero vuoto!");
+    } else { 
+        return DataNDelete(Detach(*FindPointerToPredecessor(root, data)));
+    }
 }
 
 template<typename Data>
 void BST<Data>::RemovePredecessor(const Data& data) {
-    // (concrete function must throw std::length_error when not found)
+    if (root == nullptr) {
+        throw std::length_error("Errore: albero vuoto!");
+    } else {
+        delete Detach(*FindPointerToPredecessor(root, data));
+    }
 } 
 
 // ... 
 
 template<typename Data>
 const Data& BST<Data>::Successor(const Data& data) const {
-    // (concrete function must throw std::length_error when not found)
+    if (root == nullptr) {
+        throw std::length_error("Errore: albero vuoto!");
+    } else {
+        return (*FindPointerToSuccessor(root, data))->Element();
+    }
 }
   
 template<typename Data>
 Data BST<Data>::SuccessorNRemove(const Data& data) {
-    // (concrete function must throw std::length_error when not found)
+    if (root == nullptr) {
+        throw std::length_error("Errore: albero vuoto!");
+    } else {
+        return DataNDelete(Detach(*FindPointerToSuccessor(root, data)));
+    }
 }
 
 template<typename Data>
 void BST<Data>::RemoveSuccessor(const Data& data){
-    // (concrete function must throw std::length_error when not found)
+        if (root == nullptr) {
+        throw std::length_error("Errore: albero vuoto!");
+    } else {
+        delete Detach(*FindPointerToSuccessor(root, data));
+    }
 }
 
 // ... 
@@ -148,62 +168,59 @@ void BST<Data>::Insert(const Data& data) {
     NodeLnk* parent = nullptr;
     NodeLnk* current = root;
 
-    while(current != nullptr){
-        parent = current;
-        if(current->element > data)
-            current = &current->LeftChild();
-        else 
-            current = &current->RightChild();
-    }
-
-    if(parent == nullptr) {
+    if (root == nullptr) {
         root = newnode;
     } else {
-        if (parent->element > data) {
-            parent->leftchild = newnode;
-            ++size;
-        } else { 
-            parent->rightchild = newnode;
-            ++size;
+        while(current != nullptr) {
+            parent = current;
+            if (newnode->element > current->element)
+                current = current->rightchild;
+            else 
+                current = current->leftchild;
         }
+
+        if (newnode->element < parent->element)
+            parent->leftchild = newnode;
+        else 
+            parent->rightchild = newnode;
+
     }
 }  
 
 template<typename Data>
-void Insert(Data&& data){
+void BST<Data>::Insert(Data&& data){
     NodeLnk* newnode = new NodeLnk(std::move(data));
-
-    /* Per sicurezza */
-    newnode->leftchild = nullptr;
-    newnode->rightchild = nullptr;
-
     NodeLnk* parent = nullptr;
     NodeLnk* current = root;
 
-    while(current != nullptr){
-        parent = current;
-        if(current->element > data)
-            current = &current->LeftChild();
-        else 
-            current = &current->RightChild();
-    }
-
-    if(parent == nullptr) {
+    if (root == nullptr) {
         root = newnode;
     } else {
-        if (parent->element > data) {
-            parent->leftchild = newnode;
-            ++size;
-        } else { 
-            parent->rightchild = newnode;
-            ++size;
+        while(current != nullptr) {
+            parent = current;
+            if (newnode->element > current->element)
+                current = current->rightchild;
+            else 
+                current = current->leftchild;
         }
+
+        if (newnode->element < parent->element)
+            parent->leftchild = newnode;
+        else 
+            parent->rightchild = newnode;
+
     }
 }  
 
 template<typename Data>
 void BST<Data>::Remove(const Data& data) {
-    
+    if (root != nullptr){
+        NodeLnk* to_remove = FindPointerTo(root, data);
+        if (to_remove != nullptr) {
+            to_remove = Detach(to_remove);
+            delete to_remove;
+        }
+    }
 }
 
 template<typename Data>
@@ -228,10 +245,7 @@ bool BST<Data>::Exists(const Data& data) const noexcept {
 template<typename Data>
 Data BST<Data>::DataNDelete(NodeLnk* node) {
     Data elem = node->element;
-
-    /* SE NODE E' OTTENUTO DALLA DETACH, ALLORA OK */
-    delete node; // POSSIBILE SEGMENTATION FAULT.
-    
+    delete node;
     return elem;
 }
 
@@ -270,7 +284,7 @@ typename BST<Data>::NodeLnk* BST<Data>::Skip2Left(NodeLnk*& node) noexcept {
     if(node != nullptr){
         std::swap(sinistro, node->leftchild);
         std::swap(sinistro, node);
-        --size;
+        size--;
     }   
 
     return sinistro;    
@@ -283,7 +297,7 @@ typename BST<Data>::NodeLnk* BST<Data>::Skip2Right(NodeLnk*& node) noexcept {
     if(node != nullptr){
         std::swap(destro, node->rightchild);
         std::swap(destro, node);
-        --size;
+        size--;
     }   
 
     return destro;    

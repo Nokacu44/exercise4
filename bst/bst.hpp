@@ -18,10 +18,9 @@ class BST : virtual public DictionaryContainer<Data>,
 private:
 
 protected:
+  using typename BinaryTreeLnk<Data>::NodeLnk;
   using BinaryTreeLnk<Data>::size;
   using BinaryTreeLnk<Data>::root;
-  
-  using typename BinaryTreeLnk<Data>::NodeLnk;
 
 public:
   // Default constructor
