@@ -51,22 +51,26 @@ const Data& BST<Data>::Min() const {
     if (root == nullptr) {
         throw std::length_error("Errore: bst vuoto!");
     } else {
-        return ( FindPointerToMin(&(this->Root()))->Element() );
+        return FindPointerToMin(&this->Root())->Element();
     }
 }
 
 template<typename Data>
 Data BST<Data>::MinNRemove() {
-    // if (root == nullptr) {
-    //     throw std::length_error("Errore: bst vuoto!");
-    // } else {
-
-    // }
+    if (root == nullptr) {
+        throw std::length_error("Errore: bst vuoto!");
+    } else {
+        return DataNDelete(Detach(FindPointerToMin(&this->Root())));
+    }
 }
 
 template<typename Data>
 void BST<Data>::RemoveMin() {
-
+    if (root == nullptr) {
+        throw std::length_error("Errore: bst vuoto!");
+    } else {
+        delete Detach(FindPointerToMin(&this->Root()));
+    }
 }
 
 // ...
@@ -76,26 +80,38 @@ const Data& BST<Data>::Max() const {
     if (root == nullptr) {
         throw std::length_error("Errore: bst vuoto!");
     } else {
-        return ( FindPointerToMax(&(this->Root()))->Element() );
+        return FindPointerToMax(&this->Root())->Element();
     }
 }
 
 template<typename Data>
 Data BST<Data>::MaxNRemove() {
-  
+    if (root == nullptr) {
+        throw std::length_error("Errore: bst vuoto!");
+    } else {
+        return DataNDelete(Detach(FindPointerToMax(&this->Root())));
+    }
 }
 
 template<typename Data>
 void BST<Data>::RemoveMax() {
-    
+    if (root == nullptr) {
+        throw std::length_error("Errore: bst vuoto!");
+    } else {
+        delete Detach(FindPointerToMax(&this->Root()));
+    }
 }
 
 // ...
 
 template<typename Data>
 const Data& BST<Data>::Predecessor(const Data& data) const {
-    // (concrete function must throw std::length_error when not found)
-} 
+    if (root == nullptr) {
+        throw std::length_error("Errore: albero vuoto!");
+    } else {
+        // return *(FindPointerToPredecessor( root, data ))->Element();
+    }
+}
 
 template<typename Data>
 Data BST<Data>::PredecessorNRemove(const Data& data) {
@@ -187,7 +203,7 @@ void Insert(Data&& data){
 
 template<typename Data>
 void BST<Data>::Remove(const Data& data) {
-
+    
 }
 
 template<typename Data>

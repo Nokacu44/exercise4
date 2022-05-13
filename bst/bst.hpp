@@ -65,7 +65,7 @@ public:
 
   virtual const Data& Min() const;  // (concrete function must throw std::length_error when empty)
   virtual Data MinNRemove();        // (concrete function must throw std::length_error when empty)
-  virtual void RemoveMin(); // (concrete function must throw std::length_error when empty)
+  virtual void RemoveMin();         // (concrete function must throw std::length_error when empty)
 
   virtual const Data& Max() const; // (concrete function must throw std::length_error when empty)
   virtual Data MaxNRemove();       // (concrete function must throw std::length_error when empty)
