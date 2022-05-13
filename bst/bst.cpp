@@ -45,7 +45,7 @@ inline bool BST<Data>::operator!=(const BST<Data>& bst) const noexcept {
     return !(*this == bst);
 }
 
-/******* SPECIFIC MEMBER FUNCTIONS *******/
+/********************* SPECIFIC MEMBER FUNCTIONS *********************/
 template<typename Data>
 const Data& BST<Data>::Min() const {
     if (root == nullptr) {
@@ -170,6 +170,7 @@ void BST<Data>::Insert(const Data& data) {
 
     if (root == nullptr) {
         root = newnode;
+        size = 1;
     } else {
         while(current != nullptr) {
             parent = current;
@@ -198,6 +199,7 @@ void BST<Data>::Insert(Data&& data){
 
     if (root == nullptr) {
         root = newnode;
+        size = 1;
     } else {
         while(current != nullptr) {
             parent = current;
@@ -221,29 +223,36 @@ void BST<Data>::Insert(Data&& data){
 template<typename Data>
 void BST<Data>::Remove(const Data& data) {
     if (root != nullptr){
-        NodeLnk* to_remove = FindPointerTo(root, data);
-        if (to_remove != nullptr) {
-            to_remove = Detach(to_remove);
-            delete to_remove;
-        }
+        delete Detach(FindPointerTo(root, data));
     }
 }
 
 template<typename Data>
 bool BST<Data>::Exists(const Data& data) const noexcept {
-    NodeLnk* temp = root;
-    
-    while(temp != nullptr) {
-        if (temp->element == data) {
-            return true;
-        } else if (temp->element > data) {
-            temp = &temp->LeftChild();
-        } else {
-            temp = &temp->RightChild();
+    if (root != nullptr) {
+        NodeLnk* temp = root;
+            
+        while(temp != nullptr) {
+            if (temp->element > data) {
+                if (temp->leftchild != nullptr) {
+                    temp = temp->leftchild;
+                } else {
+                    return false;
+                }
+            } else if (temp->element < data) {
+                if (temp->rightchild != nullptr) {
+                    temp = temp->rightchild;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
         }
-    } 
-
-    return false;  
+        return false;
+    } else {
+        return false;
+    }
 }
 
 
