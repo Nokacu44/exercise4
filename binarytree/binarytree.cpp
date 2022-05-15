@@ -252,8 +252,10 @@ void BinaryTree<Data>::FoldBreadth(FoldFunctor funct, const void* par, void* acc
 // COSTRUTTORI
 template <typename Data>
 BTPreOrderIterator<Data>::BTPreOrderIterator(const BinaryTree<Data>& bt) {
-    root = &(bt.Root());
-    current = root;
+    if (bt.Size() != 0) {
+        root = &(bt.Root());
+        current = root;
+    }
 }
 
 template <typename Data>
@@ -379,10 +381,12 @@ void BTPostOrderIterator<Data>::getMostLeftLeaf() {
 
 template<typename Data>
 BTPostOrderIterator<Data>::BTPostOrderIterator(const BinaryTree<Data>& bt) {
-    root = &(bt.Root());
-    current = root; 
-    getMostLeftLeaf();
-    last = current; // last deve essere il riferimento alla MostLeftLeaft.
+    if (bt.Size() != 0) {
+        root = &(bt.Root());
+        current = root; 
+        getMostLeftLeaf();
+        last = current; // last deve essere il riferimento alla MostLeftLeaf.
+    } 
 }
 
 template<typename Data>
@@ -498,12 +502,14 @@ void BTInOrderIterator<Data>::getMostLeftNode() {
 // COSTRUTTORI E DISTRUTTORE
 template <typename Data>
 BTInOrderIterator<Data>::BTInOrderIterator(const BinaryTree<Data>& bt) {
-    root = &(bt.Root()); 
-    current = root;
-    /*
-        current, partendo dalla radice deve arrivare al nodo alla più estrema sinistra.
-    */
-    getMostLeftNode();
+    if(bt.Size() != 0) {
+        root = &(bt.Root()); 
+        current = root;
+        /*
+            current, partendo dalla radice deve arrivare al nodo alla più estrema sinistra.
+        */
+        getMostLeftNode();
+    }
 }
 
 template <typename Data>
@@ -596,8 +602,10 @@ void BTInOrderIterator<Data>::Reset() noexcept {
 // COSTRUTTORI E DISTRUTTORE
 template <typename Data>
 BTBreadthIterator<Data>::BTBreadthIterator(const BinaryTree<Data>& bt) {
-    root = &(bt.Root()); 
-    current = root;
+    if(bt.Size() != 0) {
+        root = &(bt.Root()); 
+        current = root;
+    }
 }
 
 template<typename Data>
