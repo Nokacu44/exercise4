@@ -137,18 +137,22 @@ void menuBSTInteger(BST<int>& bst) {
                 std::cout << "ERRORE: INPUT NON INTERO, RIPETERE! ";
             }
 
-            bst.Insert(elem);
+            if (!bst.Exists(elem)) {
+                bst.Insert(elem);
 
-            cout << endl << elem << " E' STATO INSERITO." << endl;
+                cout << endl << elem << " E' STATO INSERITO." << endl;
 
-            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
-            bst.MapBreadth(visualizeBSTInt, nullptr);
-            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
-            bst.MapPreOrder(visualizeBSTInt, nullptr);
-            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
-            bst.MapPostOrder(visualizeBSTInt, nullptr);
-            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
-            bst.MapInOrder(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+                bst.MapBreadth(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+                bst.MapPreOrder(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+                bst.MapPostOrder(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+                bst.MapInOrder(visualizeBSTInt, nullptr);
+            } else {
+                cout << endl << "NON POSSO INSERIRE: L'ELEMENTO ESISTE GIA'." << endl;
+            }
             cout << endl;
 
             menuBSTInteger(bst);
