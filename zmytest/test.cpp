@@ -45,7 +45,15 @@ void menuBSTInteger(BST<int>& bst) {
     cout << endl << "[1] (MAP) PER VISUALIZZAZIONE ALBERO IN AMPIEZZA, PRE-ORDER, POST-ORDER, IN-ORDER." << endl;
     cout << "[2] PER CONTROLLO DI ESISTENZA DI UN VALORE." << endl;
     cout << "[3] (FOLD) PER APPLICAZIONE FUNZIONE PRODOTTO PER GLI INTERI MINORI DI N." << endl;
-    cout << "SCELTA: "; 
+    
+    
+    cout << "[4] PER INSERIRE UN ELEMENTO." << endl;
+    cout << "[5] PER ELIMINARE UN ELEMENTO." << endl;
+    cout << "[6] RIMOZIONE, RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL MINIMO." << endl;
+    cout << "[7] RIMOZIONE, RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL MASSIMO." << endl;
+    cout << "[8] RIMOZIONE, RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL PREDECESSORE DI UN DATO ELEMENTO." << endl;
+    cout << "[9] RIMOZIONE, RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL SUCCESSORE DI UN DATO ELEMENTO." << endl;
+    cout << "SCELTA: ";
     cin >> choice;
 
     switch(choice) {
@@ -115,6 +123,60 @@ void menuBSTInteger(BST<int>& bst) {
             bst.FoldInOrder(foldBSTInt, &lim, &start);
 
             cout << endl;
+            menuBSTInteger(bst);
+            break;
+        }
+        case 4: {
+            int elem = 0;
+            while (cout << endl << "DIGITARE IL NUMERO DA INSERIRE: " && !(cin >> elem)) {
+                std::cin.clear(); 
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                std::cout << "ERRORE: INPUT NON INTERO, RIPETERE! ";
+            }
+
+            bst.Insert(elem);
+
+            cout << endl << elem << " E' STATO INSERITO." << endl;
+
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTInt, nullptr);
+            cout << endl;
+
+            menuBSTInteger(bst);
+            break;
+        }
+        case 5: {
+            int elem = 0;
+            while (cout << endl << "DIGITARE IL NUMERO DA RIMUOVERE: " && !(cin >> elem)) {
+                std::cin.clear(); 
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                std::cout << "ERRORE: INPUT NON INTERO, RIPETERE! ";
+            }
+
+            if (bst.Exists(elem)) {
+                bst.Remove(elem);
+
+                cout << endl << elem << " E' STATO RIMOSSO." << endl;
+
+                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+                bst.MapBreadth(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+                bst.MapPreOrder(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+                bst.MapPostOrder(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+                bst.MapInOrder(visualizeBSTInt, nullptr);
+                cout << endl;
+            } else {
+                cout << endl << "OPERAZIONE IMPOSSIBILE: ELEMENTO INESISTENTE." << endl;
+            }
+
             menuBSTInteger(bst);
             break;
         }
