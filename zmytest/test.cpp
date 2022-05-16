@@ -45,14 +45,17 @@ void menuBSTInteger(BST<int>& bst) {
     cout << endl << "[1] (MAP) PER VISUALIZZAZIONE ALBERO IN AMPIEZZA, PRE-ORDER, POST-ORDER, IN-ORDER." << endl;
     cout << "[2] PER CONTROLLO DI ESISTENZA DI UN VALORE." << endl;
     cout << "[3] (FOLD) PER APPLICAZIONE FUNZIONE PRODOTTO PER GLI INTERI MINORI DI N." << endl;
-    
-    
     cout << "[4] PER INSERIRE UN ELEMENTO." << endl;
     cout << "[5] PER ELIMINARE UN ELEMENTO." << endl;
-    cout << "[6] RIMOZIONE, RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL MINIMO." << endl;
-    cout << "[7] RIMOZIONE, RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL MASSIMO." << endl;
-    cout << "[8] RIMOZIONE, RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL PREDECESSORE DI UN DATO ELEMENTO." << endl;
-    cout << "[9] RIMOZIONE, RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL SUCCESSORE DI UN DATO ELEMENTO." << endl;
+    cout << "[6] RIMOZIONE DEL MINIMO." << endl;
+    cout << "[7] RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL MINIMO." << endl;
+    cout << "[8] RIMOZIONE DEL MASSIMO." << endl;
+    cout << "[9] RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL MASSIMO." << endl;
+    cout << "[10] RIMOZIONE DEL SUCCESSORE DI UN DATO ELEMENTO." << endl;
+    cout << "[11] RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL SUCCESSORE DI UN DATO ELEMENTO." << endl; 
+    
+    // cout << "[9] RIMOZIONE, RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL SUCCESSORE DI UN DATO ELEMENTO." << endl;
+    
     cout << "SCELTA: ";
     cin >> choice;
 
@@ -175,6 +178,152 @@ void menuBSTInteger(BST<int>& bst) {
                 cout << endl;
             } else {
                 cout << endl << "OPERAZIONE IMPOSSIBILE: ELEMENTO INESISTENTE." << endl;
+            }
+
+            menuBSTInteger(bst);
+            break;
+        }
+        case 6: {
+            int minimo = bst.Min();
+            cout << endl << "IL MINIMO DELL'ALBERO E': "<< minimo << endl;
+            
+            bst.RemoveMin();
+
+            cout << minimo << " E' STATO ELIMINATO." << endl;
+
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTInt, nullptr);
+            cout << endl;
+
+            menuBSTInteger(bst);
+            break;
+        }
+        case 7: {
+            cout << endl << "LETTURA NON DISTRUTTIVA DEL MINIMO:" << endl; 
+            cout << "--> IL MINIMO DELL'ALBERO E': " << bst.Min();
+            cout << endl; 
+
+            cout << endl << "RIMOZIONE CON LETTURA DEL MINIMO: " << endl;
+            cout << "--> " << bst.MinNRemove() << " E' STATO RIMOSSO." << endl; 
+            
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTInt, nullptr);
+            cout << endl;
+
+            menuBSTInteger(bst);
+            break;
+        }
+        case 8: {
+            int massimo = bst.Max();
+            cout << endl << "IL MINIMO DELL'ALBERO E': " << massimo << endl;
+            
+            bst.RemoveMax();
+
+            cout << massimo << " E' STATO ELIMINATO." << endl;
+
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTInt, nullptr);
+            cout << endl;
+
+            menuBSTInteger(bst);
+            break;
+        }
+        case 9: {
+            cout << endl << "LETTURA NON DISTRUTTIVA DEL MASSIMO:" << endl; 
+            cout << "--> IL MASSIMO DELL'ALBERO E': " << bst.Max();
+            cout << endl; 
+
+            cout << endl << "RIMOZIONE CON LETTURA DEL MASSIMO: " << endl;
+            cout << "--> " << bst.MaxNRemove() << " E' STATO RIMOSSO." << endl; 
+            
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTInt, nullptr);
+            cout << endl;
+
+            menuBSTInteger(bst);
+            break;
+        }
+        case 10: {
+            int value = 0;   
+            while (cout << endl << "DIGITARE IL NUMERO DI CUI TROVARE IL SUCCESSORE: " && !(cin >> value)) {
+                std::cin.clear(); 
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                std::cout << "ERRORE: INPUT NON INTERO, RIPETERE! ";
+            }
+
+            if (bst.Exists(value)) {
+                int successor = bst.Successor(value);
+                cout << endl << "IL SUCCESSORE DI " << value << " E': "<< successor << endl;
+                bst.RemoveSuccessor(value);
+                cout << successor << " E' STATO ELIMINATO." << endl;
+                
+                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+                bst.MapBreadth(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+                bst.MapPreOrder(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+                bst.MapPostOrder(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+                bst.MapInOrder(visualizeBSTInt, nullptr);
+                cout << endl;
+            } else {
+                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
+            }
+
+            menuBSTInteger(bst);
+            break;
+        }
+        case 11: {
+            int value = 0;   
+            while (cout << endl << "DIGITARE IL NUMERO DI CUI TROVARE IL SUCCESSORE: " && !(cin >> value)) {
+                std::cin.clear(); 
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                std::cout << "ERRORE: INPUT NON INTERO, RIPETERE! ";
+            }
+
+            if (bst.Exists(value)) {
+                cout << endl << "LETTURA NON DISTRUTTIVA DEL SUCCESSORE DI " << value << " :" << endl; 
+                cout << "--> IL SUCCESSORE E': " << bst.Successor(value);
+                cout << endl; 
+
+                cout << endl << "RIMOZIONE CON LETTURA DEL SUCCESSORE: " << endl;
+                cout << "--> " << bst.SuccessorNRemove(value) << " E' STATO RIMOSSO." << endl; 
+                
+                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+                bst.MapBreadth(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+                bst.MapPreOrder(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+                bst.MapPostOrder(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+                bst.MapInOrder(visualizeBSTInt, nullptr);
+                cout << endl;
+            } else {
+                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
             }
 
             menuBSTInteger(bst);
