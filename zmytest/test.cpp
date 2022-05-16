@@ -53,9 +53,9 @@ void menuBSTInteger(BST<int>& bst) {
     cout << "[9] RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL MASSIMO." << endl;
     cout << "[10] RIMOZIONE DEL SUCCESSORE DI UN DATO ELEMENTO." << endl;
     cout << "[11] RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL SUCCESSORE DI UN DATO ELEMENTO." << endl; 
-    
-    // cout << "[9] RIMOZIONE, RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL SUCCESSORE DI UN DATO ELEMENTO." << endl;
-    
+    cout << "[12] RIMOZIONE DEL PREDECESSORE DI UN DATO ELEMENTO." << endl;
+    cout << "[13] RIMOZIONE CON LETTURA E LETTURA NON DISTRUTTIVA DEL PREDECESSORE DI UN DATO ELEMENTO." << endl;
+    cout << "[14] CLEAR DELLA STRUTTURA." << endl;
     cout << "SCELTA: ";
     cin >> choice;
 
@@ -326,6 +326,74 @@ void menuBSTInteger(BST<int>& bst) {
                 cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
             }
 
+            menuBSTInteger(bst);
+            break;
+        }
+        case 12: {
+            int value = 0;   
+            while (cout << endl << "DIGITARE IL NUMERO DI CUI TROVARE IL PREDECESSORE: " && !(cin >> value)) {
+                std::cin.clear(); 
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                std::cout << "ERRORE: INPUT NON INTERO, RIPETERE! ";
+            }
+
+            if (bst.Exists(value)) {
+                int predecessor = bst.Predecessor(value);
+                cout << endl << "IL PREDECESSORE DI " << value << " E': " << predecessor << endl;
+                bst.RemovePredecessor(value);
+                cout << predecessor << " E' STATO ELIMINATO." << endl;
+                
+                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+                bst.MapBreadth(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+                bst.MapPreOrder(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+                bst.MapPostOrder(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+                bst.MapInOrder(visualizeBSTInt, nullptr);
+                cout << endl;
+            } else {
+                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
+            }
+
+            menuBSTInteger(bst);
+            break;
+        }
+        case 13: {
+            int value = 0;   
+            while (cout << endl << "DIGITARE IL NUMERO DI CUI TROVARE IL PREDECESSORE: " && !(cin >> value)) {
+                std::cin.clear(); 
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                std::cout << "ERRORE: INPUT NON INTERO, RIPETERE! ";
+            }
+
+            if (bst.Exists(value)) {
+                cout << endl << "LETTURA NON DISTRUTTIVA DEL PREDECESSORE DI " << value << " :" << endl; 
+                cout << "--> IL PREDECESSORE E': " << bst.Predecessor(value);
+                cout << endl; 
+
+                cout << endl << "RIMOZIONE CON LETTURA DEL PREDECESSORE: " << endl;
+                cout << "--> " << bst.PredecessorNRemove(value) << " E' STATO RIMOSSO." << endl; 
+                
+                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+                bst.MapBreadth(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+                bst.MapPreOrder(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+                bst.MapPostOrder(visualizeBSTInt, nullptr);
+                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+                bst.MapInOrder(visualizeBSTInt, nullptr);
+                cout << endl;
+            } else {
+                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
+            }
+
+            menuBSTInteger(bst);
+            break;
+        }
+        case 14: {
+            bst.Clear();
+            cout << endl << "LA STRUTTURA ORA E' VUOTA! " << endl;
             menuBSTInteger(bst);
             break;
         }
