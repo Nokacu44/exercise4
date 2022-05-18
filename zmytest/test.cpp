@@ -331,24 +331,20 @@ void menuBSTInteger(BST<int>& bst) {
                 std::cout << "ERRORE: INPUT NON INTERO, RIPETERE! ";
             }
 
-            if (bst.Exists(value)) {
-                int successor = bst.Successor(value);
-                cout << endl << "IL SUCCESSORE DI " << value << " E': "<< successor << endl;
-                bst.RemoveSuccessor(value);
-                cout << successor << " E' STATO ELIMINATO." << endl;
+            int successor = bst.Successor(value);
+            cout << endl << "IL SUCCESSORE DI " << value << " E': "<< successor << endl;
+            bst.RemoveSuccessor(value);
+            cout << successor << " E' STATO ELIMINATO." << endl;
                 
-                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
-                bst.MapBreadth(visualizeBSTInt, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
-                bst.MapPreOrder(visualizeBSTInt, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
-                bst.MapPostOrder(visualizeBSTInt, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
-                bst.MapInOrder(visualizeBSTInt, nullptr);
-                cout << endl;
-            } else {
-                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
-            }
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTInt, nullptr);
+            cout << endl;
 
             menuBSTInteger(bst);
             break;
@@ -361,26 +357,22 @@ void menuBSTInteger(BST<int>& bst) {
                 std::cout << "ERRORE: INPUT NON INTERO, RIPETERE! ";
             }
 
-            if (bst.Exists(value)) {
-                cout << endl << "LETTURA NON DISTRUTTIVA DEL SUCCESSORE DI " << value << " :" << endl; 
-                cout << "--> IL SUCCESSORE E': " << bst.Successor(value);
-                cout << endl; 
+            cout << endl << "LETTURA NON DISTRUTTIVA DEL SUCCESSORE DI " << value << " :" << endl; 
+            cout << "--> IL SUCCESSORE E': " << bst.Successor(value);
+            cout << endl; 
 
-                cout << endl << "RIMOZIONE CON LETTURA DEL SUCCESSORE: " << endl;
-                cout << "--> " << bst.SuccessorNRemove(value) << " E' STATO RIMOSSO." << endl; 
+            cout << endl << "RIMOZIONE CON LETTURA DEL SUCCESSORE: " << endl;
+            cout << "--> " << bst.SuccessorNRemove(value) << " E' STATO RIMOSSO." << endl; 
                 
-                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
-                bst.MapBreadth(visualizeBSTInt, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
-                bst.MapPreOrder(visualizeBSTInt, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
-                bst.MapPostOrder(visualizeBSTInt, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
-                bst.MapInOrder(visualizeBSTInt, nullptr);
-                cout << endl;
-            } else {
-                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
-            }
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTInt, nullptr);
+            cout << endl;
 
             menuBSTInteger(bst);
             break;
@@ -393,25 +385,21 @@ void menuBSTInteger(BST<int>& bst) {
                 std::cout << "ERRORE: INPUT NON INTERO, RIPETERE! ";
             }
 
-            if (bst.Exists(value)) {
-                int predecessor = bst.Predecessor(value);
-                cout << endl << "IL PREDECESSORE DI " << value << " E': " << predecessor << endl;
-                bst.RemovePredecessor(value);
-                cout << predecessor << " E' STATO ELIMINATO." << endl;
+            int predecessor = bst.Predecessor(value);
+            cout << endl << "IL PREDECESSORE DI " << value << " E': " << predecessor << endl;
+            bst.RemovePredecessor(value);
+            cout << predecessor << " E' STATO ELIMINATO." << endl;
                 
-                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
-                bst.MapBreadth(visualizeBSTInt, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
-                bst.MapPreOrder(visualizeBSTInt, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
-                bst.MapPostOrder(visualizeBSTInt, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
-                bst.MapInOrder(visualizeBSTInt, nullptr);
-                cout << endl;
-            } else {
-                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
-            }
-
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTInt, nullptr);
+            cout << endl;
+            
             menuBSTInteger(bst);
             break;
         }
@@ -423,26 +411,21 @@ void menuBSTInteger(BST<int>& bst) {
                 std::cout << "ERRORE: INPUT NON INTERO, RIPETERE! ";
             }
 
-            if (bst.Exists(value)) {
-                cout << endl << "LETTURA NON DISTRUTTIVA DEL PREDECESSORE DI " << value << " :" << endl; 
-                cout << "--> IL PREDECESSORE E': " << bst.Predecessor(value);
-                cout << endl; 
-
-                cout << endl << "RIMOZIONE CON LETTURA DEL PREDECESSORE: " << endl;
-                cout << "--> " << bst.PredecessorNRemove(value) << " E' STATO RIMOSSO." << endl; 
-                
-                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
-                bst.MapBreadth(visualizeBSTInt, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
-                bst.MapPreOrder(visualizeBSTInt, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
-                bst.MapPostOrder(visualizeBSTInt, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
-                bst.MapInOrder(visualizeBSTInt, nullptr);
-                cout << endl;
-            } else {
-                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
-            }
+            cout << endl << "LETTURA NON DISTRUTTIVA DEL PREDECESSORE DI " << value << " :" << endl; 
+            cout << "--> IL PREDECESSORE E': " << bst.Predecessor(value);
+            cout << endl; 
+            cout << endl << "RIMOZIONE CON LETTURA DEL PREDECESSORE: " << endl;
+            cout << "--> " << bst.PredecessorNRemove(value) << " E' STATO RIMOSSO." << endl; 
+            
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTInt, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTInt, nullptr);
+            cout << endl;
 
             menuBSTInteger(bst);
             break;
@@ -699,24 +682,20 @@ void menuBSTFloat(BST<float>& bst){
                 std::cout << "ERRORE: INPUT NON FLOAT, RIPETERE! ";
             }
 
-            if (bst.Exists(value)) {
-                float successor = bst.Successor(value);
-                cout << endl << "IL SUCCESSORE DI " << setprecision(9) << value << " E': " << setprecision(9) << successor << endl;
-                bst.RemoveSuccessor(value);
-                cout << setprecision(9) << successor << " E' STATO ELIMINATO." << endl;
-                
-                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
-                bst.MapBreadth(visualizeBSTFloat, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
-                bst.MapPreOrder(visualizeBSTFloat, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
-                bst.MapPostOrder(visualizeBSTFloat, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
-                bst.MapInOrder(visualizeBSTFloat, nullptr);
-                cout << endl;
-            } else {
-                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
-            }
+            float successor = bst.Successor(value);
+            cout << endl << "IL SUCCESSORE DI " << setprecision(9) << value << " E': " << setprecision(9) << successor << endl;
+            bst.RemoveSuccessor(value);
+            cout << setprecision(9) << successor << " E' STATO ELIMINATO." << endl;
+            
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTFloat, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTFloat, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTFloat, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTFloat, nullptr);
+            cout << endl;
 
             menuBSTFloat(bst);
             break;
@@ -729,26 +708,21 @@ void menuBSTFloat(BST<float>& bst){
                 std::cout << "ERRORE: INPUT NON FLOAT, RIPETERE! ";
             }
 
-            if (bst.Exists(value)) {
-                cout << endl << "LETTURA NON DISTRUTTIVA DEL SUCCESSORE DI " << setprecision(9) << value << " :" << endl; 
-                cout << "--> IL SUCCESSORE E': " << setprecision(9) << bst.Successor(value);
-                cout << endl; 
-
-                cout << endl << "RIMOZIONE CON LETTURA DEL SUCCESSORE: " << endl;
-                cout << "--> " << setprecision(9) << bst.SuccessorNRemove(value) << " E' STATO RIMOSSO." << endl; 
-                
-                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
-                bst.MapBreadth(visualizeBSTFloat, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
-                bst.MapPreOrder(visualizeBSTFloat, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
-                bst.MapPostOrder(visualizeBSTFloat, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
-                bst.MapInOrder(visualizeBSTFloat, nullptr);
-                cout << endl;
-            } else {
-                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
-            }
+            cout << endl << "LETTURA NON DISTRUTTIVA DEL SUCCESSORE DI " << setprecision(9) << value << " :" << endl; 
+            cout << "--> IL SUCCESSORE E': " << setprecision(9) << bst.Successor(value);
+            cout << endl; 
+            cout << endl << "RIMOZIONE CON LETTURA DEL SUCCESSORE: " << endl;
+            cout << "--> " << setprecision(9) << bst.SuccessorNRemove(value) << " E' STATO RIMOSSO." << endl; 
+            
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTFloat, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTFloat, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTFloat, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTFloat, nullptr);
+            cout << endl;
 
             menuBSTFloat(bst);
             break;
@@ -761,24 +735,20 @@ void menuBSTFloat(BST<float>& bst){
                 std::cout << "ERRORE: INPUT NON FLOAT, RIPETERE! ";
             }
 
-            if (bst.Exists(value)) {
-                float predecessor = bst.Predecessor(value);
-                cout << endl << "IL PREDECESSORE DI " << setprecision(9) << value << " E': " << setprecision(9) << predecessor << endl;
-                bst.RemovePredecessor(value);
-                cout << setprecision(9) << predecessor << " E' STATO ELIMINATO." << endl;
-                
-                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
-                bst.MapBreadth(visualizeBSTFloat, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
-                bst.MapPreOrder(visualizeBSTFloat, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
-                bst.MapPostOrder(visualizeBSTFloat, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
-                bst.MapInOrder(visualizeBSTFloat, nullptr);
-                cout << endl;
-            } else {
-                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
-            }
+            float predecessor = bst.Predecessor(value);
+            cout << endl << "IL PREDECESSORE DI " << setprecision(9) << value << " E': " << setprecision(9) << predecessor << endl;
+            bst.RemovePredecessor(value);
+            cout << setprecision(9) << predecessor << " E' STATO ELIMINATO." << endl;
+            
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTFloat, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTFloat, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTFloat, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTFloat, nullptr);
+            cout << endl;
 
             menuBSTFloat(bst);
             break;
@@ -791,26 +761,21 @@ void menuBSTFloat(BST<float>& bst){
                 std::cout << "ERRORE: INPUT NON FLOAT, RIPETERE! ";
             }
 
-            if (bst.Exists(value)) {
-                cout << endl << "LETTURA NON DISTRUTTIVA DEL PREDECESSORE DI " << setprecision(9) << value << " :" << endl; 
-                cout << "--> IL PREDECESSORE E': " << setprecision(9) << bst.Predecessor(value);
-                cout << endl; 
-
-                cout << endl << "RIMOZIONE CON LETTURA DEL PREDECESSORE: " << endl;
-                cout << "--> " << setprecision(9) << bst.PredecessorNRemove(value) << " E' STATO RIMOSSO." << endl; 
-                
-                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
-                bst.MapBreadth(visualizeBSTFloat, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
-                bst.MapPreOrder(visualizeBSTFloat, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
-                bst.MapPostOrder(visualizeBSTFloat, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
-                bst.MapInOrder(visualizeBSTFloat, nullptr);
-                cout << endl;
-            } else {
-                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
-            }
+            cout << endl << "LETTURA NON DISTRUTTIVA DEL PREDECESSORE DI " << setprecision(9) << value << " :" << endl; 
+            cout << "--> IL PREDECESSORE E': " << setprecision(9) << bst.Predecessor(value);
+            cout << endl; 
+            cout << endl << "RIMOZIONE CON LETTURA DEL PREDECESSORE: " << endl;
+            cout << "--> " << setprecision(9) << bst.PredecessorNRemove(value) << " E' STATO RIMOSSO." << endl; 
+            
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTFloat, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTFloat, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTFloat, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTFloat, nullptr);
+            cout << endl;
 
             menuBSTFloat(bst);
             break;
@@ -1065,24 +1030,20 @@ void menuBSTString(BST<string>& bst) {
                 std::cout << "ERRORE: INPUT NON STRINGA, RIPETERE! ";
             }
 
-            if (bst.Exists(value)) {
-                string successor = bst.Successor(value);
-                cout << endl << "IL SUCCESSORE DI " << value << " E': "<< successor << endl;
-                bst.RemoveSuccessor(value);
-                cout << successor << " E' STATO ELIMINATO." << endl;
-                
-                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
-                bst.MapBreadth(visualizeBSTString, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
-                bst.MapPreOrder(visualizeBSTString, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
-                bst.MapPostOrder(visualizeBSTString, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
-                bst.MapInOrder(visualizeBSTString, nullptr);
-                cout << endl;
-            } else {
-                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
-            }
+            string successor = bst.Successor(value);
+            cout << endl << "IL SUCCESSORE DI " << value << " E': "<< successor << endl;
+            bst.RemoveSuccessor(value);
+            cout << successor << " E' STATO ELIMINATO." << endl;
+            
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTString, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTString, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTString, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTString, nullptr);
+            cout << endl;
 
             menuBSTString(bst);
             break;
@@ -1095,26 +1056,21 @@ void menuBSTString(BST<string>& bst) {
                 std::cout << "ERRORE: INPUT NON STRINGA, RIPETERE! ";
             }
 
-            if (bst.Exists(value)) {
-                cout << endl << "LETTURA NON DISTRUTTIVA DEL SUCCESSORE DI " << value << " :" << endl; 
-                cout << "--> IL SUCCESSORE E': " << bst.Successor(value);
-                cout << endl; 
-
-                cout << endl << "RIMOZIONE CON LETTURA DEL SUCCESSORE: " << endl;
-                cout << "--> " << bst.SuccessorNRemove(value) << " E' STATO RIMOSSO." << endl; 
-                
-                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
-                bst.MapBreadth(visualizeBSTString, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
-                bst.MapPreOrder(visualizeBSTString, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
-                bst.MapPostOrder(visualizeBSTString, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
-                bst.MapInOrder(visualizeBSTString, nullptr);
-                cout << endl;
-            } else {
-                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
-            }
+            cout << endl << "LETTURA NON DISTRUTTIVA DEL SUCCESSORE DI " << value << " :" << endl; 
+            cout << "--> IL SUCCESSORE E': " << bst.Successor(value);
+            cout << endl; 
+            cout << endl << "RIMOZIONE CON LETTURA DEL SUCCESSORE: " << endl;
+            cout << "--> " << bst.SuccessorNRemove(value) << " E' STATO RIMOSSO." << endl; 
+            
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTString, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTString, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTString, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTString, nullptr);
+            cout << endl;
 
             menuBSTString(bst);
             break;
@@ -1127,24 +1083,20 @@ void menuBSTString(BST<string>& bst) {
                 std::cout << "ERRORE: INPUT NON STRINGA, RIPETERE! ";
             }
 
-            if (bst.Exists(value)) {
-                string predecessor = bst.Predecessor(value);
-                cout << endl << "IL PREDECESSORE DI " << value << " E': " << predecessor << endl;
-                bst.RemovePredecessor(value);
-                cout << predecessor << " E' STATO ELIMINATO." << endl;
-                
-                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
-                bst.MapBreadth(visualizeBSTString, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
-                bst.MapPreOrder(visualizeBSTString, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
-                bst.MapPostOrder(visualizeBSTString, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
-                bst.MapInOrder(visualizeBSTString, nullptr);
-                cout << endl;
-            } else {
-                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
-            }
+            string predecessor = bst.Predecessor(value);
+            cout << endl << "IL PREDECESSORE DI " << value << " E': " << predecessor << endl;
+            bst.RemovePredecessor(value);
+            cout << predecessor << " E' STATO ELIMINATO." << endl;
+            
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTString, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTString, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTString, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTString, nullptr);
+            cout << endl;
 
             menuBSTString(bst);
             break;
@@ -1157,26 +1109,21 @@ void menuBSTString(BST<string>& bst) {
                 std::cout << "ERRORE: INPUT NON STRINGA, RIPETERE! ";
             }
 
-            if (bst.Exists(value)) {
-                cout << endl << "LETTURA NON DISTRUTTIVA DEL PREDECESSORE DI " << value << " :" << endl; 
-                cout << "--> IL PREDECESSORE E': " << bst.Predecessor(value);
-                cout << endl; 
-
-                cout << endl << "RIMOZIONE CON LETTURA DEL PREDECESSORE: " << endl;
-                cout << "--> " << bst.PredecessorNRemove(value) << " E' STATO RIMOSSO." << endl; 
-                
-                cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
-                bst.MapBreadth(visualizeBSTString, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
-                bst.MapPreOrder(visualizeBSTString, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
-                bst.MapPostOrder(visualizeBSTString, nullptr);
-                cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
-                bst.MapInOrder(visualizeBSTString, nullptr);
-                cout << endl;
-            } else {
-                cout << endl << "OPERAZIONE IMPOSSIBILE: IL NODO NON ESISTE." << endl;
-            }
+            cout << endl << "LETTURA NON DISTRUTTIVA DEL PREDECESSORE DI " << value << " :" << endl; 
+            cout << "--> IL PREDECESSORE E': " << bst.Predecessor(value);
+            cout << endl; 
+            cout << endl << "RIMOZIONE CON LETTURA DEL PREDECESSORE: " << endl;
+            cout << "--> " << bst.PredecessorNRemove(value) << " E' STATO RIMOSSO." << endl; 
+            
+            cout << endl << "VISUALIZZAZIONE ALBERO IN AMPIEZZA: ";
+            bst.MapBreadth(visualizeBSTString, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN PRE-ORDER: ";
+            bst.MapPreOrder(visualizeBSTString, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN POST-ORDER: ";
+            bst.MapPostOrder(visualizeBSTString, nullptr);
+            cout << endl << "VISUALIZZAZIONE ALBERO IN IN-ORDER: ";
+            bst.MapInOrder(visualizeBSTString, nullptr);
+            cout << endl;
 
             menuBSTString(bst);
             break;
@@ -1211,7 +1158,7 @@ void startTest() {
             cout << endl;
             for (int i = 0; i < dimensione; i++){
                 int value = generateRandomInteger();
-                cout << "HO GENERATO IL VALORE: " << value << endl;
+                cout << "(insert at back) HO GENERATO IL VALORE: " << value << endl;
                 lista->InsertAtBack(value);
             }
 
@@ -1227,7 +1174,7 @@ void startTest() {
             cout << endl;
             for (int i = 0; i < dimensione; i++){
                 float value = generateRandomFloat();
-                cout << setprecision(9) << "HO GENERATO IL VALORE: " << value << endl;
+                cout << setprecision(9) << "(insert at back) HO GENERATO IL VALORE: " << value << endl;
                 lista->InsertAtBack(value);
             }
 
@@ -1243,7 +1190,7 @@ void startTest() {
             cout << endl;
             for (int i = 0; i < dimensione; i++){
                 string value = generateRandomString();
-                cout << "HO GENERATO IL VALORE: " << value << endl;
+                cout << "(insert at back) HO GENERATO IL VALORE: " << value << endl;
                 lista->InsertAtBack(value);
             }
 
@@ -1255,5 +1202,4 @@ void startTest() {
         defaut: 
             cout << "ERRORE: SCELTA NON DISPONIBILE!" << endl;
     }
-
 }

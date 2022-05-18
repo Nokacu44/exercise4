@@ -105,7 +105,12 @@ const Data& BST<Data>::Predecessor(const Data& data) const {
     if (root == nullptr) {
         throw std::length_error("Errore: BST vuoto!");
     } else {
-        return (*FindPointerToPredecessor(root, data))->Element();
+        NodeLnk* to_return = *FindPointerToPredecessor(root, data); 
+        if (to_return == nullptr) {
+            throw std::length_error("Errore: elemento non trovato!");
+        } else {
+            return to_return->Element();
+        }
     }
 }
 
@@ -113,7 +118,7 @@ template<typename Data>
 Data BST<Data>::PredecessorNRemove(const Data& data) {
     if (root == nullptr) {
         throw std::length_error("Errore: BST vuoto!");
-    } else { 
+    } else {
         return DataNDelete(Detach(*FindPointerToPredecessor(root, data)));
     }
 }
@@ -132,7 +137,12 @@ const Data& BST<Data>::Successor(const Data& data) const {
     if (root == nullptr) {
         throw std::length_error("Errore: BST vuoto!");
     } else {
-        return (*FindPointerToSuccessor(root, data))->Element();
+        NodeLnk* to_return = *FindPointerToSuccessor(root, data); 
+        if (to_return == nullptr) {
+            throw std::length_error("Errore: elemento non trovato!");
+        } else {
+            return to_return->Element();
+        }
     }
 }
   
