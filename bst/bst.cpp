@@ -105,11 +105,11 @@ const Data& BST<Data>::Predecessor(const Data& data) const {
     if (root == nullptr) {
         throw std::length_error("Errore: BST vuoto!");
     } else {
-        NodeLnk* to_return = *FindPointerToPredecessor(root, data); 
+        NodeLnk* const* to_return = FindPointerToPredecessor(root, data); 
         if (to_return == nullptr) {
-            throw std::length_error("Errore: elemento non trovato!");
+            throw std::length_error("Errore: predecessore non trovato!");
         } else {
-            return to_return->Element();
+            return (*to_return)->Element();
         }
     }
 }
@@ -119,7 +119,13 @@ Data BST<Data>::PredecessorNRemove(const Data& data) {
     if (root == nullptr) {
         throw std::length_error("Errore: BST vuoto!");
     } else {
-        return DataNDelete(Detach(*FindPointerToPredecessor(root, data)));
+        NodeLnk* to_return = Detach(*FindPointerToPredecessor(root, data));
+
+        if (to_return == nullptr)
+            throw std::length_error("Errore: predecessore non trovato!");
+        
+        Data value = DataNDelete(to_return);
+        return value;
     }
 }
 
@@ -128,20 +134,27 @@ void BST<Data>::RemovePredecessor(const Data& data) {
     if (root == nullptr) {
         throw std::length_error("Errore: BST vuoto!");
     } else {
-        delete Detach(*FindPointerToPredecessor(root, data));
+        NodeLnk** to_return = FindPointerToPredecessor(root, data);
+        
+        if (to_return == nullptr)
+            throw std::length_error("Errore: predecessore non esistente.");
+        
+        NodeLnk*& detach = *to_return;
+        NodeLnk* destroy = Detach(detach);
+        delete destroy;
     }
-} 
+}
 
 template<typename Data>
 const Data& BST<Data>::Successor(const Data& data) const {
     if (root == nullptr) {
         throw std::length_error("Errore: BST vuoto!");
     } else {
-        NodeLnk* to_return = *FindPointerToSuccessor(root, data); 
+        NodeLnk* const* to_return = FindPointerToSuccessor(root, data); 
         if (to_return == nullptr) {
-            throw std::length_error("Errore: elemento non trovato!");
+            throw std::length_error("Errore: successore non trovato!");
         } else {
-            return to_return->Element();
+            return (*to_return)->Element();
         }
     }
 }
@@ -151,7 +164,13 @@ Data BST<Data>::SuccessorNRemove(const Data& data) {
     if (root == nullptr) {
         throw std::length_error("Errore: BST vuoto!");
     } else {
-        return DataNDelete(Detach(*FindPointerToSuccessor(root, data)));
+        NodeLnk* to_return = Detach(*FindPointerToSuccessor(root, data));
+
+        if (to_return == nullptr)
+            throw std::length_error("Errore: successore non trovato!");
+
+        Data value = DataNDelete(to_return);
+        return value;
     }
 }
 
@@ -160,7 +179,14 @@ void BST<Data>::RemoveSuccessor(const Data& data){
     if (root == nullptr) {
         throw std::length_error("Errore: BST vuoto!");
     } else {
-        delete Detach(*FindPointerToSuccessor(root, data));
+        NodeLnk** to_return = FindPointerToSuccessor(root, data);
+        
+        if (to_return == nullptr)
+            throw std::length_error("Errore: successore non esiste.");
+        
+        NodeLnk*& detach = *to_return;
+        NodeLnk* destroy = Detach(detach);
+        delete destroy;
     }
 }
 

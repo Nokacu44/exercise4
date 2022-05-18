@@ -94,6 +94,7 @@ void stestBSTInt(uint& testnum, uint& testerr) {
     Successor(loctestnum, loctesterr, bst, true, 4, 6);
 
     PredecessorNRemove(loctestnum, loctesterr, bst, true, 7, 6);
+
     SuccessorNRemove(loctestnum, loctesterr, bst, true, 0, 1);
 
     FoldPreOrder(loctestnum, loctesterr, bst, true, &FoldAdd<int>, 0, 0, 6);
