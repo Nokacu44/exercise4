@@ -216,7 +216,7 @@ void BST<Data>::Insert(const Data& data) {
             size++;
         }
     }
-}  
+}
 
 template<typename Data>
 void BST<Data>::Insert(Data&& data){
